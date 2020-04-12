@@ -10,13 +10,18 @@ using namespace std;
 // Assuming that these are sorted arrays
 
 // Function to print intersection
+/*
+*   Function needs to have 2 arrays and their sizes to complete their task
+*/
 void printIntersection(int arr[], int arr2[], int arrSize, int arrSize2);
 
 int main()
 {
+    // Initialize variables
     int listArray[] = {1, 3, 5, 10, 54, 78};
     int listArray2[] = {6, 10, 54, 98, 99};
 
+    // Get array sizes
     int arrSize1 = sizeof(listArray)/sizeof(listArray[0]);
     int arrSize2 = sizeof(listArray2)/sizeof(listArray2[0]);
 
@@ -28,26 +33,37 @@ int main()
 
 void printIntersection(int arr[], int arr2[], int arrSize, int arrSize2)
 {
-    int innerIndex = 0, outerIndex = 0;
+    // Initialize variables
+    int arrIndex = 0, arr2Index = 0;
 
-    while(innerIndex < arrSize && outerIndex < arrSize2)
+    // while both arrays are less than their own size
+    while(arrIndex < arrSize && arr2Index < arrSize2)
     {
-        if(arr[innerIndex] < arr2[outerIndex])
+        // check if the value at the current index in the first array is less than
+        // the value at the current index of the second array
+        if(arr[arrIndex] < arr2[arr2Index])
         {
-            innerIndex++;
+            // If so, go to the next index of the first array
+            arrIndex++;
         }
 
-        else if(arr2[outerIndex] < arr[innerIndex])
+        // otherwise check if the current index in the second array is less than
+        // the value at the current index of the first array
+        else if(arr2[arr2Index] < arr[arrIndex])
         {
-            outerIndex++;
+            // if so, go to the next index of the second array
+            arr2Index++;
         }
 
+
+        // otherwise, we have found and intersection from the second array at the current index
         else
         {
-            cout << arr2[outerIndex] << " ";
+            cout << arr2[arr2Index] << " ";
 
-            innerIndex++;
-            outerIndex++;
+            // Increment both array indicies
+            arrIndex++;
+            arr2Index++;
         }
     }
 }
