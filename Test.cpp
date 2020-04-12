@@ -4,8 +4,6 @@
 
 // Output 10, 54
 
-// For odd numbered lists, the middle number will be the answer.
-// For even numbered lists the
 #include <iostream>
 using namespace std;
 
